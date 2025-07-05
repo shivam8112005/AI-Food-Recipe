@@ -1,4 +1,6 @@
 const Recipe=require('../models/recipe');
+
+
 const getRecipes=async (req, res)=>{
    const recipes=await Recipe.find();
      if(!recipes){
@@ -8,7 +10,13 @@ const getRecipes=async (req, res)=>{
 };
 
 const getRecipe=async (req, res)=>{
-     
+     const recipe=await Recipe.findById(req.params.id);
+     if(!recipe){
+        return res.status(404).json({message:"Recipe not found!"});
+
+     }
+     return res.status(200).json({recipe:recipe});
+
     // res.json({message:"hello world hjguhkubb "});
 };
 
@@ -32,8 +40,21 @@ const addRecipe=async (req, res)=>{
 
 };
 
-const editRecipe=(req, res)=>{
-    res.json({message:"hello world hjguhkubb "});
+const editRecipe=async (req, res)=>{
+    let recipe=await Recipe.findById(req.params.id);
+    if(!recipe){
+        return res.status(404).json({message:"Recipe not found!"});
+    }
+   try{
+     await Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true});
+    res.status(200).json({
+        message:"Recipe updated successfully",
+        recipe:recipe
+    });
+   }catch(err){
+       console.error(err);
+       res.status(404).json({message:"Error updating recipe"});
+   }
 };
 
 const deleteRecipe=(req, res)=>{
