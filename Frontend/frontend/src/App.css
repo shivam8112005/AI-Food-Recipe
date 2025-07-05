@@ -82,7 +82,7 @@ section{
 }
 
 .home button{
-  color: #555;
+  color: #454040;
   border:none;
   background-color: #ffccbc;
   width: 200px;
@@ -121,7 +121,7 @@ section{
 }
 
 .card-body{
-  background-color: #f1f8e9; /* very light green */
+  background-color: #ffccbc; /* very light green */
   padding: 1rem;
 }
 
@@ -129,22 +129,24 @@ section{
   margin-bottom:5px;
   font-size: 15px;
   font-weight:500;
-  color: #555;
+  color: #454040;
 }
 
 .card-body .icons{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color:#454040;
 }
 
 .card-body .timer{
   display: flex;
   align-items: center;
+  justify-items: center;
   gap:2px;
   font-size: 13px;
   font-weight: 500;
-  color: #777;
+  color: #454040;
 }
 
 .action{
@@ -200,7 +202,7 @@ section{
 }
 
 .form-header{
-  background-color: #c8e6c9; /* pastel green */
+  background-color: #ffe0b2; /* pastel green */
   height: 3px;
   text-align: center;
 }
@@ -230,10 +232,10 @@ section{
 .form button{
   margin:2rem 0;
   border:none;
-  background-color: #c8e6c9;
+  background-color: #ffe0b2;
   font-size: 14px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  color: #555;
+  color: #000;
   cursor: pointer;
 }
 
@@ -274,7 +276,7 @@ section{
 .footer{
   width:100vw;
   height: 30px;
-  color: #555;
+  color: #454040;
   background-color: #ffccbc;
   position: fixed;
   bottom: 0;
@@ -310,5 +312,5 @@ section{
 
 .active{
   color:#555 !important;
-  background-color: #c8e6c9;
+  background-color: #ffe0b2;
 }

@@ -4,9 +4,20 @@ import viteLogo from '/vite.svg'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import './App.css'
 import Home from './pages/Home';
+import MainNavigation from './components/MainNavigation';
+import axios from "axios";
+
+const getAllRecipes=async ()=>{
+let allRecipes=[];
+await axios.get('http://localhost:5000/recipe/').then((resolve)=>{
+  allRecipes=resolve.data;
+})
+return allRecipes;
+}
 
 const router = createBrowserRouter([
-  {path:"/", element:<Home/>},]);
+  {path:"/", element:<MainNavigation/>, children:[{path:"/", element:<Home/>, loader:getAllRecipes},]}
+  ]);
 
 function App() {
   const [count, setCount] = useState(0)
