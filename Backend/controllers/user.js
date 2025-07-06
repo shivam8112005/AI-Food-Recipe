@@ -34,7 +34,14 @@ if(user && await bcrypt.compare(password, user.password)){
 }
 
 const getUser=async(req,res)=>{
-    
+
+    const user=await User.findById(req.params.id);
+    if(user){
+        return res.status(200).json({email:user.email});
+    }else{
+        return res.status(400).json({message:"user not found!"})
+    }
+
 }
 
 module.exports={userLogin, userSignUp, getUser}
