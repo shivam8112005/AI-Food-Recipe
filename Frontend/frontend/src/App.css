@@ -212,6 +212,7 @@ section{
   justify-content: space-between;
   gap:1rem;
   margin-top: 1rem;
+  color:#454040;
 }
 
 .form-control .input{
@@ -220,6 +221,8 @@ section{
   border-radius: 4px;
   height: 30px;
   padding: 2px;
+  background-color: #fff;
+  color: #000;
 }
 
 .form-control .input-textarea{
@@ -237,6 +240,8 @@ section{
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   color: #000;
   cursor: pointer;
+  /* display:block; */
+/* margin: 10 auto; */
 }
 
 .form button:hover{

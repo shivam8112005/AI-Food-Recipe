@@ -29,7 +29,7 @@ if(user && await bcrypt.compare(password, user.password)){
     let token= jwt.sign({email, id:user._id}, process.env.SECRET_KEY);
  return res.status(200).json({token,user});
 }else{
-    return res.status(400).json({message:"Invalid Credentials!"});
+    return res.status(400).json({error:"Invalid Credentials!"});
 }
 }
 
@@ -39,7 +39,7 @@ const getUser=async(req,res)=>{
     if(user){
         return res.status(200).json({email:user.email});
     }else{
-        return res.status(400).json({message:"user not found!"})
+        return res.status(400).json({error:"user not found!"})
     }
 
 }

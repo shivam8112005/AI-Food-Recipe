@@ -1,6 +1,7 @@
-import React from "react";
-
+import React, {useState} from "react";
+import Modal from "./Modal";
 export default function Navbar(){
+    const [isOpen, setOpen]=useState(false);
     return (
         <>
         <header>
@@ -9,9 +10,10 @@ export default function Navbar(){
                 <li>Home</li>
                 <li>My Recipe</li>
                 <li>Favourites</li>
-                <li>Login</li>
+                <li onClick={()=>setOpen(true)}>Login</li>
             </ul>
         </header>
+        {isOpen? <Modal onClose={()=>setOpen(false)}/>:""}
         </>
     )
 }
