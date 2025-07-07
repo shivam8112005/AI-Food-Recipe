@@ -6,6 +6,7 @@ import './App.css'
 import Home from './pages/Home';
 import MainNavigation from './components/MainNavigation';
 import axios from "axios";
+import AddFoodRecipe from './pages/AddFoodRecipe';
 
 const getAllRecipes=async ()=>{
 let allRecipes=[];
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
   {path:"/", element:<MainNavigation/>, children:[
     {path:"/", element:<Home/>, loader:getAllRecipes},
     {path:"/myRecipe", element:<Home/>, loader:getAllRecipes},
-    {path:"/favRecipe", element:<Home/>, loader:getAllRecipes}
+    {path:"/favRecipe", element:<Home/>, loader:getAllRecipes},
+    {path:"/addRecipe", element:<AddFoodRecipe/>, loader:getAllRecipes},
   ]}
   ]);
 
