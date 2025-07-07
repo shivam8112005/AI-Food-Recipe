@@ -15,9 +15,12 @@ console.log(allRecipes);
         <div className="card-container">
             {
                 allRecipes["recipes"].map((rec,ind)=>{
+                    if(rec.coverImage)console.log(`http://localhost:5000/${rec.coverImage}`);
+                    
+                    
                     return (
                         <div key={ind} className="card">
-                               <img src={foodRecipe} alt={rec.title} width="120px" height="100px" />
+                               <img src={`http://localhost:5000/${rec.coverImage}`} alt={rec.title} width="120px" height="100px" />
                             <div className="card-body">
                                 <div className="title">
                                     {rec.title}
@@ -28,8 +31,6 @@ console.log(allRecipes);
                                      {rec.time?rec.time:"30mins"} 
                                    </div>
                                     <FaHeart />
-
-
                                 </div>
                             </div>
                         </div>
