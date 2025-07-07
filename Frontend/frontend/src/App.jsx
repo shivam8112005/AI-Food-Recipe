@@ -16,7 +16,11 @@ return allRecipes;
 }
 
 const router = createBrowserRouter([
-  {path:"/", element:<MainNavigation/>, children:[{path:"/", element:<Home/>, loader:getAllRecipes},]}
+  {path:"/", element:<MainNavigation/>, children:[
+    {path:"/", element:<Home/>, loader:getAllRecipes},
+    {path:"/myRecipe", element:<Home/>, loader:getAllRecipes},
+    {path:"/favRecipe", element:<Home/>, loader:getAllRecipes}
+  ]}
   ]);
 
 function App() {

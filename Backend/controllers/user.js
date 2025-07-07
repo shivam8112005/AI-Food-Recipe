@@ -15,7 +15,7 @@ const hashpass=await bcrypt.hash(password, 10);
 const userobj=new User({email, password:hashpass});
  await userobj.save();
  let token= jwt.sign({email, id:userobj._id}, process.env.SECRET_KEY);
- return res.status(201).json({token,userobj});
+ return res.status(201).json({token,user:userobj});
 
 }
 
