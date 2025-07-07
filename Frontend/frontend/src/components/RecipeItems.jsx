@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import foodRecipe from "../assets/food.jpg";
+import foodRecipe from "../assets/Homefood1.webp";
 import { BsFillStopwatchFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 
