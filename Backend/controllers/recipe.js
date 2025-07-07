@@ -39,17 +39,27 @@ const addRecipe=async (req, res)=>{
       return  res.json({message:"Required fields cant be empty!"});
     }
 
-    const newRecipe=new Recipe({
+    try{
+      const newRecipe=new Recipe({
         title,
         ingredients,
         instructions,
         time :time? time : '',
-        coverImage: `images/${req.file.filename}`
+        coverImage: `images/${req.file.filename}`,
+        createdBy:req.user._id,
     });
     await newRecipe.save();
+    console.log(newRecipe);
+    
     return res.status(201).json({
         message:"Recipe added successfully",
         recipe:newRecipe});
+    }catch(err){
+      console.log("in add recipe error");
+      console.log(err);
+      
+      
+    }
 
 };
 

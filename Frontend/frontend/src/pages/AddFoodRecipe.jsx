@@ -9,19 +9,23 @@ export default function AddFoodRecipe() {
         // console.log(e.target.files[0]);
         
         let val = (e.target.name === "ingredients") ? e.target.value.split(",") : (e.target.name === "file") ? e.target.files[0] : e.target.value
-        setRecipeData(pre => ({ ...pre, [e.target.name]: val }))
+        setRecipeData(pre => ({ ...pre, [e.target.name]: val }));
     }
     const onHandleSubmit = async (e) => {
-        e.preventDefault()
-        console.log(recipeData)
+        e.preventDefault();
+        // console.log(recipeData);grerg   gfgftb thtr  trbrgegmghn  ger yntrnjtym   rgrb tf  trg
         await axios.post("http://localhost:5000/recipe", recipeData, {
             headers:{
                 'Content-Type':'multipart/form-data',
-                'Authorization': 'bearer '+localStorage.getItem('token')
+                'authorization': 'bearer '+localStorage.getItem('token')
 
             }
         })
-            .then(() => navigate("/"))
+            .then(() => {
+                console.log("hello post");
+                
+                navigate("/")}).catch((err)=>{console.log(err," hellooooooo")});
+                
     }
     return (
         <>
