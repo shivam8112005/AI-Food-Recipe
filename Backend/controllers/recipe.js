@@ -46,7 +46,7 @@ const addRecipe=async (req, res)=>{
         instructions,
         time :time? time : '',
         coverImage: `images/${req.file.filename}`,
-        createdBy:req.user._id,
+        createdBy:req.user.id,
     });
     await newRecipe.save();
     console.log(newRecipe);
