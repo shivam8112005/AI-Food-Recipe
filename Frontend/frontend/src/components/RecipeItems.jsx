@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link} from "react-router-dom";
 import foodRecipe from "../assets/Homefood1.webp";
 import { BsFillStopwatchFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
@@ -32,12 +32,12 @@ let path=window.location.pathname==="/myRecipe"
                                      <BsFillStopwatchFill />
                                      {rec.time?rec.time:"30mins"} 
                                    </div>
-                                    <FaHeart />
-                                    <div className="action">
-                                        <FaEdit />
+                                    
+                                   {(!path)?<FaHeart />: <div className="action">
+                                       <Link to={`/editRecipe/${rec._id}`} className="editIcon"> <FaEdit /></Link>
                                     <MdDelete className="deleteIcon" />
                                     </div>
-
+                                    }
                                 </div>
                             </div>
                         </div>

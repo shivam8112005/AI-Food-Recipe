@@ -64,12 +64,15 @@ const addRecipe=async (req, res)=>{
 };
 
 const editRecipe=async (req, res)=>{
+   const {title, ingredients, instructions, time}=req.body;
     let recipe=await Recipe.findById(req.params.id);
     if(!recipe){
         return res.status(404).json({message:"Recipe not found!"});
     }
    try{
-     await Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true});
+    console.log(req);
+    
+     await Recipe.findByIdAndUpdate(req.params.id,{...req.body, coverImage:`images/${req.file.filename}`}, {new:true});
     res.status(200).json({
         message:"Recipe updated successfully",
         recipe:recipe
