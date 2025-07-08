@@ -16,10 +16,21 @@ await axios.get('http://localhost:5000/recipe/').then((resolve)=>{
 return allRecipes;
 }
 
+const getMyRecipe=async ()=>{
+  let user = JSON.parse(localStorage.getItem('user'));
+  let allRec= await getAllRecipes();
+  console.log("sdjfndsknfj yessssssssss ", allRec);
+  
+  let arr= allRec['recipes'].filter((item)=>item.createdBy===user._id);
+  let obj={}
+  obj['recipes']=arr;
+  return obj;
+}
+
 const router = createBrowserRouter([
   {path:"/", element:<MainNavigation/>, children:[
     {path:"/", element:<Home/>, loader:getAllRecipes},
-    {path:"/myRecipe", element:<Home/>, loader:getAllRecipes},
+    {path:"/myRecipe", element:<Home/>, loader:getMyRecipe},
     {path:"/favRecipe", element:<Home/>, loader:getAllRecipes},
     {path:"/addRecipe", element:<AddFoodRecipe/>, loader:getAllRecipes},
   ]}

@@ -5,7 +5,13 @@ export default function Navbar(){
     const [isOpen, setOpen]=useState(false);
     let token=localStorage.getItem('token');
     const [isLogin, setIsLogin]=useState(token? true: false);
-
+    let user=JSON.parse(localStorage.getItem("user"));
+    // user=user?user:"";
+    // console.log(user);
+    // console.log(user["email"]);
+    // let user=""
+    
+    
     useEffect(()=>{
         setIsLogin(token?true:false);
     },[token])
@@ -28,7 +34,7 @@ export default function Navbar(){
               <li> <Link to="/"> Home</Link></li>
                 <li onClick={()=>!isLogin? setOpen(true):setOpen(false)}><Link to = {isLogin?"/myRecipe":"/"}>My Recipe</Link></li>
                 <li onClick={()=>!isLogin? setOpen(true):setOpen(false)}><Link to = {isLogin? "/favRecipe": "/"}>Favourites</Link></li>
-                <li onClick={checkLogin}> <p className='login'>{(isLogin)? "Logout": "Login"}</p></li>
+                <li onClick={checkLogin}> <p className='login'>{(isLogin)? "Logout ": "Login "}({user?user.email.split("@")[0]:""})</p></li>
             </ul>
         </header>
         {isOpen? <Modal onClose={()=>setOpen(false)}/>:""}

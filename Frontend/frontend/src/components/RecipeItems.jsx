@@ -3,13 +3,15 @@ import { useLoaderData } from "react-router-dom";
 import foodRecipe from "../assets/Homefood1.webp";
 import { BsFillStopwatchFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 
 
 export default function RecipeItems (){
 const allRecipes=useLoaderData();
 console.log(allRecipes);
-
+let path=window.location.pathname==="/myRecipe"
     return (
         <>
         <div className="card-container">
@@ -31,6 +33,11 @@ console.log(allRecipes);
                                      {rec.time?rec.time:"30mins"} 
                                    </div>
                                     <FaHeart />
+                                    <div className="action">
+                                        <FaEdit />
+                                    <MdDelete className="deleteIcon" />
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
