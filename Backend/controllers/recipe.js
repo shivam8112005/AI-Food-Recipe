@@ -71,8 +71,8 @@ const editRecipe=async (req, res)=>{
     }
    try{
     console.log(req);
-    
-     await Recipe.findByIdAndUpdate(req.params.id,{...req.body, coverImage:`images/${req.file.filename}`}, {new:true});
+    let coverImage=req.file?.filename? `images/${req.file?.filename}`:recipe.coverImage
+     await Recipe.findByIdAndUpdate(req.params.id,{...req.body, coverImage:coverImage}, {new:true});
     res.status(200).json({
         message:"Recipe updated successfully",
         recipe:recipe
