@@ -26,7 +26,6 @@ export default function EditRecipe() {
 
     const onHandleChange = (e) => {
         // console.log(e.target.files[0]);
-        
         let val = (e.target.name === "ingredients") ? e.target.value.split(",") : (e.target.name === "file") ? e.target.files[0] : e.target.value
         setRecipeData(pre => ({ ...pre, [e.target.name]: val }));
     }
